@@ -23,7 +23,7 @@ info "Installing Jabba (JDK manager)..."
 curl -sL https://github.com/Jabba-Team/jabba/raw/main/install.sh | bash && . ~/.jabba/jabba.sh
 jabba install openjdk@1.11.0-2
 
-info "Installing OpenJDK 21, 22 and 23 (allO)..."
+info "Installing OpenJDK 21, 22 and 23..."
 jabba install openjdk@21.0.2
 jabba install openjdk@22.0.2
 jabba install openjdk@23
