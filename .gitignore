@@ -1,2 +1,5 @@
-cache/
+current_step.lock
+current_step.state
+current_profiles.state
+
 shared/extra.sh

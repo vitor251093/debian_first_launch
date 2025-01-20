@@ -1,17 +1,5 @@
 #!/bin/bash
 
-# You need to do that before running this file (and you need to reboot after running that)
-#
-# su -
-# usermod -aG sudo vitor
-# exit
-#
-# Reference: https://www.linuxuprising.com/2019/09/fix-username-is-not-in-sudoers-file.html
-#
-# Also, remember to do not run this file with sudo
-
-# Also, you need to disable SecureBoot before running it.
-
 cd "$(dirname "$0")"
 
 lock_file="./current_step.lock"
