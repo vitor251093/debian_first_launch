@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Action
+ToolbarLabel[en_US]=Add to Dock
+ToolbarLabel[en]=Add to Dock
+ToolbarLabel[C]=Add to Dock
+Name[en_US]=Add to Dock
+Name[en]=Add to Dock
+Name[C]=Add to Dock
+Profiles=profile-zero;
+
+[X-Action-Profile profile-zero]
+MimeTypes=inode/directory;
+Exec=/usr/local/bin/new-dock-entry %f
+Name[en_US]=Default profile
+Name[en]=Default profile
+Name[C]=Default profile

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+folderpath="$1"
+
+uuid="$(uuidgen)"
+name="$(basename $folderpath)"
+icon="$(gio info $folderpath -a standard::icon | tail -1 | sed 's/.*: \(.*\)/\1/' | sed 's/\([^,]*\),.*/\1/')"
+destfile="$HOME/.local/share/applications/dock.folder.$name.$uuid.desktop"
+desktopfilename="$(basename $destfile)"
+
+mkdir -p $HOME/.local/share/applications/
+touch $destfile
+echo "[Desktop Entry]" > "$destfile"
+echo "Name=$name" >> "$destfile"
+echo "Comment=Access $name folder" >> "$destfile"
+echo "Keywords=folder;manager;explore;disk;filesystem;" >> "$destfile"
+echo "Exec=nautilus $folderpath" >> "$destfile"
+echo "Icon=$icon" >> "$destfile"
+echo "Terminal=false" >> "$destfile"
+echo "Type=Application" >> "$destfile"
+# Works in Ubuntu, but not in Debian; that's supposed to hide the app from the apps list
+#echo "OnlyShowIn=" >> "$destfile";
+chmod a+x $destfile
+
+favourites="$(dconf read /org/gnome/shell/favorite-apps)"
+if [ ${#favourites} -ge 2 ]; then
+    favourites="${favourites::-1}, "
+else 
+    favourites="["
+fi
+favourites="$favourites'$desktopfilename']"
+dconf write /org/gnome/shell/favorite-apps "$favourites"
+
