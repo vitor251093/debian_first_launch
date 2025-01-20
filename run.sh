@@ -35,11 +35,27 @@ else
   echo "$profiles" > "$profiles_file"
 fi
 
-hardware_name=$(cat /sys/devices/virtual/dmi/id/product_name)
-hardware_dir="./hardware/$hardware_name"
-if [[ ! -d "$hardware_dir" ]]; then
-  hardware_dir="./hardware/generic"
+hardware_file="./current_hardware.state"
+if [[ -f "$hardware_file" ]]; then
+  hardware_name=$(cat "$hardware_file")
+else
+  hardware_name=$(cat /sys/devices/virtual/dmi/id/product_name)
+  hardware_dir="./hardware/$hardware_name"
+  if [[ ! -d "$hardware_dir" ]]; then
+    echo "Hardware directory for $hardware_name not found."
+    echo "Would you like to fall back to the generic hardware directory? (y/n)"
+    read -p "Proceeding with the generic directory may not make everything work out of the box. Are you sure? " user_input
+  
+    if [[ "$user_input" != "y" && "$user_input" != "Y" ]]; then
+      echo "Aborting script execution."
+      exit 1
+    fi
+
+    hardware_name="generic"
+  fi
+  echo "$hardware_name" > "$hardware_file"
 fi
+hardware_dir="./hardware/$hardware_name"
 
 install_script="$hardware_dir/install_$step.sh"
 if [[ -f "$install_script" ]]; then

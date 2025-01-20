@@ -1,5 +1,6 @@
+current_hardware.state
+current_profiles.state
 current_step.lock
 current_step.state
-current_profiles.state
 
 shared/extra.sh
