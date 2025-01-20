@@ -65,10 +65,10 @@ if [[ -f "$install_script" ]]; then
   ((step++))
   echo "$step" > "$state_file"
 else
-  if [[ -f "./shared/extra.sh" ]]; then
-    bash "./shared/extra.sh"
+  if [[ -f "./extra.sh" ]]; then
+    bash "./extra.sh"
   fi
 
   echo "true" > "$lock_file"
-  echo "Finished"
+  echo "Nothing else needs to be done"
 fi

@@ -3,4 +3,4 @@ current_profiles.state
 current_step.lock
 current_step.state
 
-shared/extra.sh
+extra.sh
