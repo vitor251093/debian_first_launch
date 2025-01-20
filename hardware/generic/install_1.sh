@@ -7,6 +7,9 @@ fi
 
 source ../../shared/functions.sh
 
+validate_if_user_has_sudo_group
+validate_if_secure_boot_is_disabled
+
 bash "../../shared/install.sh" "$1"
 bash "../../shared/de-config1.sh"
 

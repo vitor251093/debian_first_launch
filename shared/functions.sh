@@ -43,3 +43,27 @@ function add_dock_entry {
   favourites="$favourites'$1']"
   dconf write /org/gnome/shell/favorite-apps "$favourites"
 }
+
+function validate_if_user_has_sudo_group {
+  if groups "$USER" | grep -q "\bsudo\b"; then
+    echo "User has the sudo group, as expected"
+  else
+    echo "User does not have the sudo group. That must be fixed before running it"
+    exit 1
+  fi
+}
+
+function validate_if_secure_boot_is_disabled {
+  if [ -d "/sys/firmware/efi" ]; then
+    secureboot=$(mokutil --sb-state 2>/dev/null)
+    
+    if [[ "$secureboot" == *"SecureBoot enabled"* ]]; then
+        echo "Secure Boot is enabled. Disable it, and then try again"
+        exit 1
+    else
+        echo "Secure Boot is disabled."
+    fi
+  else
+    echo "This system is not running UEFI, Secure Boot is not available."
+  fi
+}
