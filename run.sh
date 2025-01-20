@@ -36,7 +36,12 @@ else
 fi
 
 hardware_name=$(cat /sys/devices/virtual/dmi/id/product_name)
-install_script="./hardware/$hardware_name/install_$step.sh"
+hardware_dir="./hardware/$hardware_name"
+if [[ ! -d "$hardware_dir" ]]; then
+  hardware_dir="./hardware/generic"
+fi
+
+install_script="$hardware_dir/install_$step.sh"
 if [[ -f "$install_script" ]]; then
   chmod +x "$install_script"
   bash "$install_script" "$profiles"
