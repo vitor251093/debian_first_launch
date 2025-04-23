@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../functions.sh
+source ./shared/functions.sh
 
 info "Installing Spotify..."
 # https://www.spotify.com/br/download/linux/

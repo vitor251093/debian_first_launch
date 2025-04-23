@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../functions.sh
+source ./shared/functions.sh
 
 info "Git config..."
 sudo apt-get install libsecret-1-dev -y

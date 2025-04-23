@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../../shared/functions.sh
+source ./shared/functions.sh
 
 validate_if_user_has_sudo_group
 validate_if_secure_boot_is_disabled

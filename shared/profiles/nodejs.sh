@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../functions.sh
+source ./shared/functions.sh
 
 info "Installing NodeJS..."
 sudo apt-get install npm nodejs -y

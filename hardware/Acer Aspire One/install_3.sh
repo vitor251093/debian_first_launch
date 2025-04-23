@@ -5,10 +5,10 @@ if [[ -z "$1" ]]; then
   exit 1
 fi
 
-source ../../shared/functions.sh
+source ./shared/functions.sh
 
-bash "../../shared/install.sh" "$1"
-bash "../../shared/de-config1.sh"
+bash "./shared/install.sh" "$1"
+bash "./shared/de-config1.sh"
 
 
 info "Adjusting startup look..."

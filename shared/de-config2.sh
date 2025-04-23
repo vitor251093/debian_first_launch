@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../shared/functions.sh
+source ./shared/functions.sh
 
 info "Setting Yaru-purple-dark theme..."
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'

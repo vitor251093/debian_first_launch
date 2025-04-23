@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source ../../shared/functions.sh
+source ./shared/functions.sh
 
-bash "../../shared/de-config2.sh"
+bash "./shared/de-config2.sh"
 
 
 info "Installing NVIDIA drivers..."

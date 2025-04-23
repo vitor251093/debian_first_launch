@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../functions.sh
+source ./shared/functions.sh
 
 info "Installing OBS Studio (Video Recorder)..."
 flatpak install flathub com.obsproject.Studio -y

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../shared/functions.sh
+source ./shared/functions.sh
 
 info "Configuring GNOME..."
 

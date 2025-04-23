@@ -26,7 +26,7 @@ if [[ -f "$profiles_file" ]]; then
   profiles=$(cat "$profiles_file")
 else
   echo "Available profiles:"
-  available_profiles=$(ls ./profiles/*.sh 2>/dev/null | xargs -n 1 basename | sed 's/\.sh$//')
+  available_profiles=$(ls ./shared/profiles/*.sh 2>/dev/null | xargs -n 1 basename | sed 's/\.sh$//')
   echo "$available_profiles"
 
   read -p "Enter the profiles to use (comma-separated or 'all' for all profiles): " profiles

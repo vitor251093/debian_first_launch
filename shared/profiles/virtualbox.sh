@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../functions.sh
+source ./shared/functions.sh
 
 info "Installing VirtualBox..."
 # https://www.virtualbox.org/wiki/Linux_Downloads

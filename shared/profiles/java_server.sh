@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../functions.sh
+source ./shared/functions.sh
 
 info "Installing Postman..."
 flatpak install flathub com.getpostman.Postman -y

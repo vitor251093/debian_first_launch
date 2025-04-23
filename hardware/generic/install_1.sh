@@ -5,13 +5,13 @@ if [[ -z "$1" ]]; then
   exit 1
 fi
 
-source ../../shared/functions.sh
+source ./shared/functions.sh
 
 validate_if_user_has_sudo_group
 validate_if_secure_boot_is_disabled
 
-bash "../../shared/install.sh" "$1"
-bash "../../shared/de-config1.sh"
+bash "./shared/install.sh" "$1"
+bash "./shared/de-config1.sh"
 
 
 info "Adjusting startup look..."

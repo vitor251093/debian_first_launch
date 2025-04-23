@@ -5,7 +5,7 @@ if [[ -z "$1" ]]; then
   exit 1
 fi
 
-source ../shared/functions.sh
+source ./shared/functions.sh
 
 info "Updating installed apps..."
 sudo apt-get update
@@ -33,6 +33,9 @@ info "Installing LibreWolf..."
 sudo apt update && sudo apt install extrepo -y
 sudo extrepo enable librewolf
 sudo apt update && sudo apt install librewolf -y
+
+info "Installing Chromium..."
+sudo apt install chromium -y
 
 info "Installing Caffeine..."
 sudo apt-get install caffeine -y

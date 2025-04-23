@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../../shared/functions.sh
+source ./shared/functions.sh
 
 # Broadcom BCM4312
 # A placa de rede ethernet é uma Qualcomm Atheros AR8132.
