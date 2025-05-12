@@ -18,8 +18,7 @@ info "Adjusting startup look..."
 echo GRUB_THEME=grub-bgrt | sudo tee -a /etc/default/grub
 echo GRUB_BACKGROUND="" | sudo tee -a /etc/default/grub
 
-# TODO: Fill field below in /etc/default/grub
-# GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=3 rd.systemd.show_status=false rd.udev.log_level=3 splash"
+sudo sed -i 's,GRUB_CMDLINE_LINUX_DEFAULT="quiet",GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=3 rd.systemd.show_status=false rd.udev.log_level=3 splash",g' /etc/default/grub
 
 # TODO: I don't know if that is needed every time, or only because I was using an updated Debian 12
 # https://www.reddit.com/r/debian/comments/149jx0y/wayland_not_available_in_gdm_after_installing/
