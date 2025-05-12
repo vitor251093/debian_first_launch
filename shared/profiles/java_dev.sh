@@ -14,10 +14,11 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose -y
 sudo usermod -aG docker $(whoami)
 
 info "Installing IntelliJ..."
-flatpak install flathub com.jetbrains.IntelliJ-IDEA-Community -y
-sudo flatpak override --filesystem=/run/docker.sock com.jetbrains.IntelliJ-IDEA-Community
-sudo flatpak override --filesystem=~/.docker com.jetbrains.IntelliJ-IDEA-Community
-sudo flatpak override --env=DOCKER_CONFIG=/home/$(whoami)/.docker com.jetbrains.IntelliJ-IDEA-Community
+# https://wiki.debian.org/JetBrains
+curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | gpg --dearmor | sudo tee /usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg] http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com any main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
+sudo apt update
+sudo apt install intellij-idea-community -y
 
 info "Installing Jabba (JDK manager)..."
 curl -sL https://github.com/Jabba-Team/jabba/raw/main/install.sh | bash && . ~/.jabba/jabba.sh
