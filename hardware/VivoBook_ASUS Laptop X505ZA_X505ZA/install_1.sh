@@ -5,6 +5,8 @@ if [[ -z "$1" ]]; then
   exit 1
 fi
 
+echo "Be sure to disable Fast Boot on your BIOS"
+
 source ./shared/functions.sh
 
 validate_if_user_has_sudo_group
